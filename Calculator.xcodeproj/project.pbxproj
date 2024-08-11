@@ -11,6 +11,7 @@
 		A65F60DE2C6009F10040D526 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F60DD2C6009F10040D526 /* ContentView.swift */; };
 		A65F60E02C6009F30040D526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65F60DF2C6009F30040D526 /* Assets.xcassets */; };
 		A65F60E42C6009F30040D526 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65F60E32C6009F30040D526 /* Preview Assets.xcassets */; };
+		A65F60EB2C600F070040D526 /* OperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F60EA2C600F070040D526 /* OperationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		A65F60DF2C6009F30040D526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A65F60E12C6009F30040D526 /* Calculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Calculator.entitlements; sourceTree = "<group>"; };
 		A65F60E32C6009F30040D526 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A65F60EA2C600F070040D526 /* OperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				A65F60DF2C6009F30040D526 /* Assets.xcassets */,
 				A65F60E12C6009F30040D526 /* Calculator.entitlements */,
 				A65F60E22C6009F30040D526 /* Preview Content */,
+				A65F60EA2C600F070040D526 /* OperationButton.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65F60EB2C600F070040D526 /* OperationButton.swift in Sources */,
 				A65F60DE2C6009F10040D526 /* ContentView.swift in Sources */,
 				A65F60DC2C6009F10040D526 /* CalculatorApp.swift in Sources */,
 			);
