@@ -108,7 +108,7 @@ struct OperationButton: View {
             }
             
         default:
-            if currentOperation == .none {
+            if currentOperation == .none || currentOperation == .equal{
                 firstValue == "0" ? (firstValue = buttonType.rawValue) : (firstValue += buttonType.rawValue)
                 setShownValueToFirstValue()
             } else {
@@ -135,6 +135,7 @@ struct OperationButton: View {
         firstValue = formatValue(result)
         setShownValueToFirstValue()
         secondValue = "0"
+        firstValue = "0"
         currentOperation = .equal
     }
     
