@@ -31,7 +31,7 @@ struct OperationButton: View {
     var backgroundColor: Color = .orange
     var textColor: Color = .white
     var buttonWidth: CGFloat = 80
-
+    
     var body: some View {
         Button(action: {
             operationAction()
@@ -45,7 +45,7 @@ struct OperationButton: View {
                 .font(.system(size: 35))
         })
     }
-
+    
     func operationAction() {
         switch buttonType {
         case .add, .subtract, .divide, .multiply, .equal:
@@ -81,20 +81,29 @@ struct OperationButton: View {
             }
             
         case .percent:
-            if currentOperation == .none {
-                firstValue = formatValue(Double(firstValue) ?? 0 / 100)
-                setShownValueToFirstValue()
+            if currentOperation == .none{
+                if(firstValue != "0"){
+                    
+                    firstValue = formatValue((Double(firstValue) ?? 0) / 100)
+                    setShownValueToFirstValue()}
             } else {
-                secondValue = formatValue(Double(secondValue) ?? 0 / 100)
-                setShownValueToSecondValue()
+                if(secondValue != "0"){
+                    secondValue = formatValue((Double(secondValue) ?? 0) / 100)
+                    setShownValueToSecondValue()}
             }
             
         case .negative:
-            if currentOperation == .none {
-                firstValue = formatValue(Double(firstValue) ?? 0 * -1)
+            if currentOperation == .none  || currentOperation == .equal{
+                if(firstValue == "0") { return }
+
+                let result = (Double(firstValue) ?? 0) * -1
+                firstValue = formatValue(result)
+                
                 setShownValueToFirstValue()
             } else {
-                secondValue = formatValue(Double(secondValue) ?? 0 * -1)
+                if(secondValue == "0") { return }
+
+                secondValue = formatValue((Double(secondValue) ?? 0) * -1)
                 setShownValueToSecondValue()
             }
             
@@ -108,7 +117,7 @@ struct OperationButton: View {
             }
         }
     }
-
+    
     func PerformOperation() {
         let result: Double
         if currentOperation == .add {
@@ -128,7 +137,7 @@ struct OperationButton: View {
         secondValue = "0"
         currentOperation = .equal
     }
-
+    
     func setShownValueToFirstValue() {
         shownValue = firstValue
     }
@@ -137,7 +146,6 @@ struct OperationButton: View {
         shownValue = secondValue
     }
     
-    // Function to format value to max 10 decimal places
     func formatValue(_ value: Double) -> String {
         // Format to 10 decimal places
         let formatter = NumberFormatter()
@@ -146,11 +154,7 @@ struct OperationButton: View {
         formatter.maximumFractionDigits = 10
         formatter.decimalSeparator = "."
         
-        // Create a number from the double
-        if let formattedNumber = formatter.string(from: NSNumber(value: value)) {
-            return formattedNumber
-        }
-        
-        return String(value) // Fallback
+        return formatter.string(from: NSNumber(value: value)) ?? String(value)
     }
+    
 }
